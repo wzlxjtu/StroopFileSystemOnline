@@ -1,0 +1,29 @@
+.ui-widget-content {
+    width: 100px;
+    height: 25px;
+    padding: 0.5em;
+}
+.ui-widget-header {
+    width: 105px;
+    height: 30px;
+    padding: 0.5em;
+    float: right;
+    margin: 10px;
+    background-color: white;
+    border: none;
+}
+#sourceContainer{
+    overflow-y: scroll;
+    width: 200px;
+    height:400px;
+}
+.imageIcon {
+    width:40px;
+    height:24px;
+    content:url('resources/imageIcon.jpg');
+}
+.folderIcon {
+    width:25px;
+    height:25px;
+    content:url('resources/folderIcon.png');
+}
