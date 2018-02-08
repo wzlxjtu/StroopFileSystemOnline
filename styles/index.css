@@ -9,6 +9,7 @@
 }
 
 .affect-img img {
+    width: 90%;
     display: table;
     margin: 0 auto;
     margin-top: 20px;
@@ -16,13 +17,13 @@
 
 .label-left {
 	position: absolute;
-	top: 110px;
+	top: 50%;
 	left: 0;
 }
 
 .label-right {
 	position: absolute;
-	top: 110px;
+	top: 50%;
 	right: 0;
 }
 
@@ -31,11 +32,11 @@
 }
 
 .group-radio-btns {
-	margin-left: 15.5%;
+	margin-left: 9.5%;
 }
 
 .group-radio-btns .radio-inline {
-	margin-right: 16.7%;
+	margin-right: 7.8%;
 }
 
 .next-page {
@@ -56,13 +57,13 @@
 .label-low {
     position: absolute;
     left: 0;
-    top: 60%;
+    top: 75%;
 }
 
 .label-high {
     position: absolute;
     right: 0;
-    top: 60%;
+    top: 75%;
 }
 
 .slider {

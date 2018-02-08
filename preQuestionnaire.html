@@ -20,38 +20,46 @@
         <section class="group-SAM">
           <div class="affect-img">
 						<h3>How negative (unhappy) or positive (happy) do you feel at the moment?</h3>
-						<img src="resources/valence.jpg">
+						<img src="resources/valence-9.png">
 					</div>
 					<div class="label-left"><label>Unhappy</label></div>
 					<div class="group-radio-btns">
-						<label class="radio-inline"><input id="rb-val1" type="radio" value="1" name="valenceradio"></label>
+						<label class="radio-inline"><input id="rb-val1" type="radio" value="1" name="valenceradio" required></label>
 						<label class="radio-inline"><input id="rb-val2" type="radio" value="2" name="valenceradio"></label>
 						<label class="radio-inline"><input id="rb-val3" type="radio" value="3" name="valenceradio"></label>
 						<label class="radio-inline"><input id="rb-val4" type="radio" value="4" name="valenceradio"></label>
 						<label class="radio-inline"><input id="rb-val5" type="radio" value="5" name="valenceradio"></label>
+						<label class="radio-inline"><input id="rb-val6" type="radio" value="6" name="valenceradio"></label>
+						<label class="radio-inline"><input id="rb-val7" type="radio" value="7" name="valenceradio"></label>
+						<label class="radio-inline"><input id="rb-val8" type="radio" value="8" name="valenceradio"></label>
+						<label class="radio-inline"><input id="rb-val9" type="radio" value="9" name="valenceradio"></label>
 					</div>
-					<div class="label-right"><label>Happy</label></div>
+					<div class="label-right"><label>Happy  </label></div>
         </section>
         <section class="group-SAM">
           <div class="affect-img">
 						<h3>How calm or excited do you feel at the moment?</h3>
-						<img src="resources/arousal.jpg">
+						<img src="resources/arousal-9.png">
 					</div>
 					<div class="label-left"><label>Calm</label></div>
 					<div class="group-radio-btns">
-						<label class="radio-inline"><input id="rb-aro1" type="radio" value="1" name="arousalradio"></label>
+						<label class="radio-inline"><input id="rb-aro1" type="radio" value="1" name="arousalradio" required></label>
 						<label class="radio-inline"><input id="rb-aro2" type="radio" value="2" name="arousalradio"></label>
 						<label class="radio-inline"><input id="rb-aro3" type="radio" value="3" name="arousalradio"></label>
 						<label class="radio-inline"><input id="rb-aro4" type="radio" value="4" name="arousalradio"></label>
 						<label class="radio-inline"><input id="rb-aro5" type="radio" value="5" name="arousalradio"></label>
+						<label class="radio-inline"><input id="rb-aro6" type="radio" value="6" name="arousalradio"></label>
+						<label class="radio-inline"><input id="rb-aro7" type="radio" value="7" name="arousalradio"></label>
+						<label class="radio-inline"><input id="rb-aro8" type="radio" value="8" name="arousalradio"></label>
+						<label class="radio-inline"><input id="rb-aro9" type="radio" value="9" name="arousalradio"></label>
 					</div>
 					<div class="label-right"><label>Excited</label></div>
         </section>
         <section>
-          <h3>How much time per week (hours) do you spend on a computer?</h3>
-          <input id="entry-pc-usage-week" type="number" class="form-control" required></input>
+          <h3>How much time per week (hours) on average do you spend on a computer?</h3>
+          <input id="entry-pc-usage-week" type="number" min="1" max="168" class="form-control" required></input>
           <h3>How long (years) have you been using computers?</h3>
-          <input id="entry-pc-usage-life" type="number" class="form-control" required></input>
+          <input id="entry-pc-usage-life" type="number" min="1" max="100" class="form-control" required></input>
         </section>
     	  <input type="submit" class="btn btn-danger btn-block next-page" value="Next" />
     	</form>  
