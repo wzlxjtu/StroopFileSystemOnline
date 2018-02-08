@@ -1,3 +1,50 @@
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#performanceContainer{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 800px;
+    top: 600px;
+    border-style: none;
+    font-size: 30px;
+}
+.performanceNumber{
+    font-size: 40px;
+}
+#taskContainer{
+    width: 1800px;
+    height:500px;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+#sourceContainer{
+    overflow-y: scroll;
+    width: 400px;
+    height:500px;
+    border-style: inset;
+}
+#targetContainer{
+    width: 400px;
+    height:500px;
+    border-style: inset;
+    position: absolute;
+    left: 1200px;
+    top: 0px;
+}
+.imageIcon {
+    width:40px;
+    height:24px;
+}
+.folderIcon {
+    width:25px;
+    height:25px;
+}
 .ui-widget-content {
     width: 100px;
     height: 25px;
@@ -14,38 +61,6 @@
     border: none;
     cursor: pointer;
     align-items: center;
-}
-#sourceContainer{
-    overflow-y: scroll;
-    width: 400px;
-    height:500px;
-    border-style: inset;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-#targetContainer{
-    width: 400px;
-    height:500px;
-    border-style: inset;
-    position: absolute;
-    left: 1200px;
-    top: 0px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-.imageIcon {
-    width:40px;
-    height:24px;
-    content:url('../resources/imageIcon.jpg');
-}
-.folderIcon {
-    width:25px;
-    height:25px;
-    content:url('../resources/folderIcon.png');
 }
 /* The Modal (background) */
 .modal {
@@ -69,10 +84,6 @@
     border: 1px solid #888;
     width: 50%;
     text-align: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 /* The Close Button */
 .close {

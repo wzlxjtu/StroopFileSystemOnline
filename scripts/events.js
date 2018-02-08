@@ -3,6 +3,7 @@ var congruent = false;
 
 var pool = ["BLUE", "GREEN", "ORANGE", "PURPLE", "RED", "YELLOW"];
 var correct = 0, wrong = 0;
+var mousePos = { x: -1, y: -1 };
 
 $(document).ready(function(){
     
@@ -19,7 +20,10 @@ $(document).ready(function(){
             }
             else {
                 wrong++;
-                if (!congruent) $("#alarm").get(0).play();
+                if (!congruent) {
+                    $("#alarm").get(0).play();
+                    $("#performanceContainer").animate({color: 'red'},100).animate({color: 'black'},4000);
+                }
             }
             $("#correct").html(correct);
             $("#wrong").html(wrong);
@@ -46,7 +50,7 @@ $(document).ready(function(){
         .attr('id', i)
         .addClass("ui-widget-content")
         .appendTo('#sourceContainer')
-        .prepend('<span><img class="imageIcon">'+' '+i+'.jpg</span>')
+        .prepend('<span><img class="imageIcon" src="../resources/imageIcon.jpg">'+' '+i+'.jpg</span>')
         .draggable({
             opacity: 0.35,
             revert: "invalid",
@@ -79,5 +83,17 @@ $(document).ready(function(){
             $(this).css('background-color', 'white');
         });
     }
-  });
-  
+    
+    // log mouse events
+    $(this).mousemove(function(event) {
+        mousePos.x = event.pageX;
+        mousePos.y = event.pageY;
+        $('#mouseInfo').html("x: "+mousePos.x+" y: "+mousePos.y)
+    })
+    .mousedown(function() {
+        $('#mouseInfo').html("x: "+mousePos.x+" y: "+mousePos.y+' down');
+    })
+    .mouseup(function() {
+        $('#mouseInfo').html("x: "+mousePos.x+" y: "+mousePos.y+' up');
+    });
+})

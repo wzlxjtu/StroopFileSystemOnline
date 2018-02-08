@@ -14,30 +14,35 @@
 </head>
 <body>
   
+  <div id='mouseInfo'></div>
+  
+  <div id='taskContainer'>
     <div id='sourceContainer'></div>
-    
     <div id='targetContainer'>
-      <div id="BLUE" class="ui-widget-header"><span><img class="folderIcon"> BLUE</span></div>
-      <div id="GREEN" class="ui-widget-header"><span><img class="folderIcon"> GREEN</span></div>
-      <div id="ORANGE" class="ui-widget-header"><span><img class="folderIcon"> ORANGE</span></div>
-      <div id="PURPLE" class="ui-widget-header"><span><img class="folderIcon"> PURPLE</span></div>
-      <div id="RED" class="ui-widget-header"><span><img class="folderIcon"> RED</span></div>
-      <div id="YELLOW" class="ui-widget-header"><span><img class="folderIcon"> YELLOW</span></div>
+      <div id="BLUE" class="ui-widget-header"><span><img class="folderIcon" src="../resources/folderIcon.png"> BLUE</span></div>
+      <div id="GREEN" class="ui-widget-header"><span><img class="folderIcon" src="../resources/folderIcon.png"> GREEN</span></div>
+      <div id="ORANGE" class="ui-widget-header"><span><img class="folderIcon" src="../resources/folderIcon.png"> ORANGE</span></div>
+      <div id="PURPLE" class="ui-widget-header"><span><img class="folderIcon" src="../resources/folderIcon.png"> PURPLE</span></div>
+      <div id="RED" class="ui-widget-header"><span><img class="folderIcon" src="../resources/folderIcon.png"> RED</span></div>
+      <div id="YELLOW" class="ui-widget-header"><span><img class="folderIcon" src="../resources/folderIcon.png"> YELLOW</span></div>
     </div>
-    
-    <p>#Correct: <span id='correct'>0</span></p>
-    <p>#Wrong: <span id='wrong'>0</span></p>
-    <p>#Total: <span id='total'>0</span></p>
-    
-    <!-- The Modal -->
-    <div class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p class="option">Choose <span id="option"></span></p>
-        <p class="target"></p>
-      </div>
+  </div>
+  
+  <div id='performanceContainer'>
+      <p>#Correct: <span id='correct' class='performanceNumber'>0</span></p>
+      <p>#Wrong: <span id='wrong' class='performanceNumber'>0</span></p>
+      <p>#Total: <span id='total' class='performanceNumber'>0</span></p>
+  </div>
+  
+  <!-- The Modal -->
+  <div class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p class="option">Choose <span id="option"></span></p>
+      <p class="target"></p>
     </div>
+  </div>
     
     <audio id="alarm" src="resources/fail.wav" preload="auto"></audio>
 </body>
