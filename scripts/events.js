@@ -50,7 +50,7 @@ $(document).ready(function(){
         .attr('id', i)
         .addClass("ui-widget-content")
         .appendTo('#sourceContainer')
-        .prepend('<span><img class="imageIcon" src="../resources/imageIcon.jpg">'+' '+i+'.jpg</span>')
+        .prepend('<span><img class="imageIcon" src="resources/imageIcon.jpg">'+' '+i+'.jpg</span>')
         .draggable({
             opacity: 0.35,
             revert: "invalid",
