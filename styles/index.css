@@ -1,0 +1,100 @@
+.centered-img {
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.page-header {
+    margin-bottom: 50px;
+}
+
+.affect-img img {
+    display: table;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.label-left {
+	position: absolute;
+	top: 110px;
+	left: 0;
+}
+
+.label-right {
+	position: absolute;
+	top: 110px;
+	right: 0;
+}
+
+.group-SAM {
+    position: relative;
+}
+
+.group-radio-btns {
+	margin-left: 15.5%;
+}
+
+.group-radio-btns .radio-inline {
+	margin-right: 16.7%;
+}
+
+.next-page {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.question-tlx {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.question-tlx h3 {
+    margin-bottom: 30px;
+}
+
+.label-low {
+    position: absolute;
+    left: 0;
+    top: 60%;
+}
+
+.label-high {
+    position: absolute;
+    right: 0;
+    top: 60%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 80% !important;
+    display: table !important;
+    margin: 0 auto !important;
+    height: 15px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 15px;
+    width: 25px;
+    height: 25px;
+    background: red;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
