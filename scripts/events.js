@@ -22,7 +22,7 @@ $(document).ready(function(){
                 wrong++;
                 if (!congruent) {
                     $("#alarm").get(0).play();
-                    $("#performanceContainer").animate({color: 'red'},100).animate({color: 'black'},4000);
+                    $("#performanceContainer").animate({color: 'red'},100).animate({color: 'black'},3000);
                 }
             }
             $("#correct").html(correct);
