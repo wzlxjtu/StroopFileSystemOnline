@@ -3,7 +3,6 @@ $( document ).ready(function(){
         var result = confirm("Are you sure you want to participate in this study?");
         if (result != true)
         {
-            close();
             return false;
         }
     });
