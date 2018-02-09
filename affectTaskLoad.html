@@ -6,9 +6,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="scripts/index.js"></script>
+	<script src="scripts/affectTaskLoad.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
-  <title>Study 1 - Welcome!</title>
+  <title>PSI | Self-Report</title>
 </head>
 <body>
   <div class="container">
@@ -16,7 +16,7 @@
 			<h1>Post-task Questionnaire</h1>
 		</div>
     <article>
-      <form id="form-config" action="TODO.html">
+      <form id="SAM" name="SAM">
         <section class="group-SAM">
           <div class="affect-img">
 						<h3>How negative (unhappy) or positive (happy) do you feel at the moment?</h3>
@@ -24,7 +24,7 @@
 					</div>
 					<div class="label-left"><label>Unhappy</label></div>
 					<div class="group-radio-btns">
-						<label class="radio-inline"><input id="rb-val1" type="radio" value="1" name="valenceradio"></label>
+						<label class="radio-inline"><input id="rb-val1" type="radio" value="1" name="valenceradio" required></label>
 						<label class="radio-inline"><input id="rb-val2" type="radio" value="2" name="valenceradio"></label>
 						<label class="radio-inline"><input id="rb-val3" type="radio" value="3" name="valenceradio"></label>
 						<label class="radio-inline"><input id="rb-val4" type="radio" value="4" name="valenceradio"></label>
@@ -43,7 +43,7 @@
 					</div>
 					<div class="label-left"><label>Calm</label></div>
 					<div class="group-radio-btns">
-						<label class="radio-inline"><input id="rb-aro1" type="radio" value="1" name="arousalradio"></label>
+						<label class="radio-inline"><input id="rb-aro1" type="radio" value="1" name="arousalradio" required></label>
 						<label class="radio-inline"><input id="rb-aro2" type="radio" value="2" name="arousalradio"></label>
 						<label class="radio-inline"><input id="rb-aro3" type="radio" value="3" name="arousalradio"></label>
 						<label class="radio-inline"><input id="rb-aro4" type="radio" value="4" name="arousalradio"></label>
