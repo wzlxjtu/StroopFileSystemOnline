@@ -6,18 +6,34 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="scripts/preQuestionnaire.js"></script>
+  <script src="scripts/typingTask.js"></script>
+	<script src="scripts/timer.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/index.css">
   <title>PSI | Typing Task</title>
 </head>
 <body>
-  <div class="container">
+	<div class="timer"></div>
+	<audio class="chatter" src="resources/audio1.mp3"></audio>
+	<!-- The Modal 
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+	    <span class="close">&times;</span>
+	    <p>For this particular task, your text will be carefully examined by an expert. Please, be careful with punctuation, grammar, and overall text quality.</p>
+	  </div>
+	</div>-->
+	<div class="container">
     <div class="page-header">
-			<h1>Pre-experiment Questionnaire</h1>      
+			<h1>Please, describe the image below</h1>
 		</div>
-    <article>
-      
-    </article>
+		<div class="circle"></div>
+    <div class="typing-container">
+      <div class="typing-img-container">
+        <img src="resources/image2.jpg">
+      </div>
+      <div class="typing-text-container">
+        <textarea rows="30" placeholder="Please, use this area to write about the image on the left..."></textarea>
+      </div>
+    </div>
   </div>
 </body>
 </html>

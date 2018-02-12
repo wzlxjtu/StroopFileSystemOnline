@@ -22,22 +22,22 @@ $( document ).ready(function(){
         
         var round = parseInt(localStorage["Round"]);
         
-        switch (round) {
+        switch (round)
+        {
             case 2:
-                alert("test");
-                document.SAM.action = "typingTask.html"
+                document.SAM.action = "typingTask.html";
                 break;
             case 3:
-                document.SAM.action = "video.html"
+                document.SAM.action = "video.html";
                 break;
             case 4:
-                document.SAM.action = "typingTask.html"
+                document.SAM.action = "typingTask.html";
                 break;
             case 5:
-                document.SAM.action = "end.html"
+                document.SAM.action = "end.html";
                 break;
             default:
-                document.SAM.action = "#"
+                document.SAM.action = "#";
                 break;
         }
         

@@ -5,11 +5,15 @@ $( document ).ready(function(){
         var weeklyUsage = $("#entry-pc-usage-week").val();
         var lifeUsage = $("#entry-pc-usage-life").val();
         
+        var peripherals = $("#peripherals")[0];
+        var peripheralChoice = peripherals.options[peripherals.selectedIndex].text;
+        
         var response = {
             "arousal" : arousalChecked,
             "valence" : valenceChecked,
             "weeklyUsage" : weeklyUsage,
-            "lifeUsage" : lifeUsage
+            "lifeUsage" : lifeUsage,
+            "Peripherals" : peripheralChoice
         };
         
         localStorage.setItem("pre-questionnaire", JSON.stringify(response));

@@ -100,3 +100,86 @@
     background: red;
     cursor: pointer;
 }
+
+.typing-container {
+    display: block;
+    width: 100%;
+}
+
+.typing-img-container, .typing-text-container {
+    display: inline-block;
+    width: 47%;
+}
+
+.typing-img-container img, .typing-text-container textarea {
+    width: 100%;
+    vertical-align: top;
+}
+
+.typing-text-container {
+    margin-left: 5%;
+}
+
+.typing-text-container textarea {
+    height: 500px;
+    padding: 5px 5px 5px 5px;
+    resize: none;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 20%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    font-size: 18pt;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.circle {
+    display: table;
+    margin: 0 auto;
+    margin-top: -20px;
+    margin-bottom: 20px;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 1px;
+	background: white;
+	width: 100px;
+	height: 100px;
+}
+
+.circle.red {
+    background: red;
+    transition: 1s ;
+}
