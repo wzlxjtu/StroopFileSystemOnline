@@ -72,7 +72,6 @@ $( document ).ready(function(){
             }
             
             localStorage.setItem("SAM" + round, JSON.stringify(response));
-            localStorage.setItem("Round", round + 1);
         }    
     });
 });

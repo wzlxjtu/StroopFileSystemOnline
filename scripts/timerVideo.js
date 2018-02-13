@@ -1,6 +1,6 @@
 
 // Set the duration we're counting down
-var duration = 5 * 60 * 100; // 5 min
+var duration = 3 * 60 * 100; // 3 min
 
 // Update the count down every 0.1 second
 var x = setInterval(function() {
@@ -19,12 +19,7 @@ var x = setInterval(function() {
     clearInterval(x);
     $(".timer").html("EXPIRED");
     
-    // Incrementing Round
-    var round = parseInt(localStorage.getItem("Round"));
-    round += 1;
-    localStorage.setItem("Round", round);
-    
     // Redirecting to self report page
-    window.location = "affectTaskLoad.html";
+    window.location = "fileSystem.html";
   }
 }, 100);
