@@ -32,11 +32,11 @@
 }
 
 .group-radio-btns {
-	margin-left: 9.5%;
+	margin-left: 10.9%;
 }
 
 .group-radio-btns .radio-inline {
-	margin-right: 7.8%;
+	margin-right: 11.1%;
 }
 
 .next-page {
@@ -57,48 +57,36 @@
 .label-low {
     position: absolute;
     left: 0;
-    top: 75%;
+    top: 65%;
 }
 
 .label-high {
     position: absolute;
     right: 0;
-    top: 75%;
+    top: 65%;
 }
 
-.slider {
-    -webkit-appearance: none;
-    width: 80% !important;
-    display: table !important;
-    margin: 0 auto !important;
-    height: 15px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+.tlx-option-wrapper {
+    width: 80%;
+    display: table;
+    margin: 0 auto;
 }
 
-.slider:hover {
-    opacity: 1;
+.tlx-option-wrapper .tlx-option{
+    display: inline-block;
+    width: 5%;
+    height: 30px;
+    border: 1px solid black;
+    background: white;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 15px;
-    width: 25px;
-    height: 25px;
-    background: red;
+.tlx-option-wrapper .tlx-option:hover{
+    background: #d9534f;
     cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 15px;
-    background: red;
-    cursor: pointer;
+.tlx-option-wrapper .tlx-option.selected{
+    background: #d9534f;
 }
 
 .typing-container {
@@ -181,5 +169,5 @@
 
 .circle.red {
     background: red;
-    transition: 1s ;
+    transition: 1s background;
 }

@@ -53,6 +53,7 @@ $(document).ready(function(){
 	    if (evt.ctrlKey && evt.which == 32){
 	        if (circleIsRead) {
 	            numRight += 1;
+	            circleIsRead = false;
 	        }
 	        alert("total: " + numDistractions + " right: " + numRight);
 	    }
