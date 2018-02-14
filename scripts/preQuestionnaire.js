@@ -24,6 +24,7 @@ $( document ).ready(function(){
         } else {
             localStorage.setItem("EasyFirst", false);
         }
+        
         localStorage.setItem("Round", 1);
     });
 });

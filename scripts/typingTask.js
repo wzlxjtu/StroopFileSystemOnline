@@ -1,9 +1,12 @@
 $(document).ready(function(){
-    var buffer = [];
+    var buffer = "";
     var circleIsRead = false;
     var timeDistraction = 1500;
     var numDistractions = 0;
     var numRight = 0;
+    
+    var pauses = [14,11,10,14,15,13,15,17,23,16,19,16,14,19,14,17,10,14,13,12];
+    var currentPauseIndex = 0;
     
     // Loading data from memory
     var round = localStorage.getItem("Round");
@@ -14,6 +17,17 @@ $(document).ready(function(){
 	
 	localStorage.setItem("numRight_" + relaxedOrStressed, 0);
 	
+	// Function to laod timer.js. This is needed because this scripts is only loaded after the user presses X
+	$.loadScript = function (url, callback) {
+	    $.ajax({
+	        url: url,
+	        dataType: 'script',
+	        success: callback,
+	        async: true
+	    });
+	}
+	
+	// Depending on whether is the relaxed or stressed block, different settings will be laoded
 	if (relaxedOrStressed == "stressed"){
 	    $(".typing-img-container img").attr("src", "resources/image3.jpg");
 	    $(".circle").css("display", "table");
@@ -23,18 +37,23 @@ $(document).ready(function(){
  	    $(".close").click(function(){
  	        $("#myModal").css("display", "none");
  	        // set pseudointerval for showing the circles
-	        var timeInterval = (1000) + Math.round(Math.random()*9) * 1000;
-	        setTimeout(setTimer, timeInterval);
+ 	        $.loadScript('scripts/timer.js', function(){
+ 	        	var timeInterval = pauses[currentPauseIndex] * 1000;
+ 	        	currentPauseIndex += 1;
+	        	setTimeout(setTimer, timeInterval);	
+ 	        });
  	    });
 	}
 	else {
 	    $(".typing-img-container img").attr("src", "resources/image4.jpg");
+	    $.loadScript('scripts/timer.js', function(){});
 	}
 	
 	function setTimer(){
-	    var timeInterval = (1000) + Math.round(Math.random()*9) * 1000;
+	    var timeInterval = pauses[currentPauseIndex] * 1000;
+ 	    currentPauseIndex += 1;
 	    paintCircle();
-	    setTimeout(setTimer, timeInterval + timeDistraction);
+	    setTimeout(setTimer, timeInterval);
 	}
 	
 	function paintCircle(){
@@ -47,10 +66,17 @@ $(document).ready(function(){
         });
 	}
 	
+	// Check if shortcut is pressed. If it is, increment numRight and paint the circle green
 	function checkShortcutPressed(evt){
 	    if (!evt) evt = event;
 	    if (evt.ctrlKey && evt.which == 32){
 	        if (circleIsRead) {
+	        	$(".circle").addClass("green").delay(200).queue(function(next){
+	        		$(this).removeClass("green");
+		            $(this).removeClass("red");
+		            circleIsRead = false;
+		            next();
+		        });
 	            numRight += 1;
 	            circleIsRead = false;
 	            
@@ -61,20 +87,20 @@ $(document).ready(function(){
 	    }
 	}
 	
-	$(document).keydown(function(e){
-	    handleTypingEvent(e, "0");
+	document.addEventListener('keydown', (event) => {
+	  handleTypingEvent(event, '0');
 	});
 	
-	$(document).keyup(function(e){
-		handleTypingEvent(e, "1");
+	document.addEventListener('keyup', (event) => {
+	  handleTypingEvent(event, '0');
 	});
 	
 	function handleTypingEvent(e, keyUpDown){
 	    checkShortcutPressed(e);
 	    var now = new Date();
 		var timestamp = now.toISOString();
-		var stroke = timestamp + ","+ keyUpDown + ","  + e.key;
-		buffer.push(stroke);
+		var stroke = timestamp +  ',' + keyUpDown + ','  + e.code;
+		buffer += stroke + ';';
 		localStorage.setItem('keylog_' + relaxedOrStressed, JSON.stringify(buffer));
 	}
 });

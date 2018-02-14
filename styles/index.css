@@ -96,16 +96,22 @@
 
 .typing-img-container, .typing-text-container {
     display: inline-block;
-    width: 47%;
+    width: 48%;
 }
 
 .typing-img-container img, .typing-text-container textarea {
     width: 100%;
     vertical-align: top;
+    transition: all .2s ease-in-out;
+}
+
+.typing-img-container img:hover {
+    cursor: zoom-in;
+    transform: scale(1.5);
 }
 
 .typing-text-container {
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 .typing-text-container textarea {
@@ -141,7 +147,7 @@
 
 /* The Close Button */
 .close {
-    color: #aaaaaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -172,6 +178,10 @@
     transition: 1s background;
 }
 
+.circle.green {
+    background: green;
+}
+
 #myProgress {
   width: 100%;
   background-color: #ddd;
@@ -184,7 +194,7 @@
 }
 
 #upload-message {
-    display: none;
+    display: table;
     margin: 0 auto;
     margin-top: 30px;
     font-weight: bold;
@@ -196,10 +206,4 @@
     margin-top: 30px;
     font-weight: bold;
     font-size: 18pt;
-}
-
-#code-generator {
-    display: none;
-    margin: 0 auto;
-    margin-top: 20px;
 }
