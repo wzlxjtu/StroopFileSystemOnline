@@ -19,6 +19,14 @@ var x = setInterval(function() {
     clearInterval(x);
     $(".timer").html("EXPIRED");
     
+    // Incrementing Round
+    var round = parseInt(localStorage.getItem("Round"));
+    round += 1;
+    localStorage.setItem("Round", round);
+    
+    // Redirecting to self report page
+    window.location = "affectTaskLoad.html";
+    
     // var filename = 'mousedata';
     // var link = $("#summary");
     // link.attr('download', filename);
