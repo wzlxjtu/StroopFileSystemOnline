@@ -51,19 +51,26 @@ $( document ).ready(function(){
             };
             
             var round = parseInt(localStorage["Round"]);
+            var easyFirst = localStorage.getItem("EasyFirst") == 'true';
+            var relaxedOrStressed = ( (easyFirst && round == 2) || (easyFirst && round == 3) || (!easyFirst && round == 4) || (!easyFirst && round == 5) ) ? "relaxed" : "stressed";
+            var SAMName;
             
             switch (round)
             {
                 case 2:
+                    SAMName = "SAM_CWT_" + relaxedOrStressed;
                     document.SAM.action = "typingTask.html";
                     break;
                 case 3:
+                    SAMName = "SAM_typing_" + relaxedOrStressed;
                     document.SAM.action = "video.html";
                     break;
                 case 4:
+                    SAMName = "SAM_CWT_" + relaxedOrStressed;
                     document.SAM.action = "typingTask.html";
                     break;
                 case 5:
+                    SAMName = "SAM_typing_" + relaxedOrStressed;
                     document.SAM.action = "end.html";
                     break;
                 default:
@@ -71,7 +78,7 @@ $( document ).ready(function(){
                     break;
             }
             
-            localStorage.setItem("SAM" + round, JSON.stringify(response));
+            localStorage.setItem(SAMName, JSON.stringify(response));
         }    
     });
 });
