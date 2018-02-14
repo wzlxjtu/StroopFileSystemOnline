@@ -1,11 +1,14 @@
 
 var congruent = false;
 
+var mousedata = "";
 var pool = ["BLUE", "GREEN", "ORANGE", "PURPLE", "RED", "YELLOW"];
 var correct = 0, wrong = 0;
 var mousePos = { x: -1, y: -1 };
 
 $(document).ready(function(){
+    
+    var startTime = (new Date).getTime();
     
     $(".close").click(function(){
         $(".modal").hide(); // When the user clicks on <span> (x), close the modal
@@ -45,12 +48,12 @@ $(document).ready(function(){
     });
     
     // create draggable elements
-    for(i=0; i<50; i++) {
+    for(i=0; i<100; i++) {
         $('<div>')
         .attr('id', i)
         .addClass("ui-widget-content")
         .appendTo('#sourceContainer')
-        .prepend('<span><img class="imageIcon" src="resources/imageIcon.jpg">'+' '+i+'.jpg</span>')
+        .prepend('<span><img class="imageIcon" src="resources/imageIcon.jpg">'+' '+('00'+i).slice(-2)+'.jpg</span>')
         .draggable({
             opacity: 0.35,
             revert: "invalid",
@@ -88,12 +91,24 @@ $(document).ready(function(){
     $(this).mousemove(function(event) {
         mousePos.x = event.pageX;
         mousePos.y = event.pageY;
-        $('#mouseInfo').html("x: "+mousePos.x+" y: "+mousePos.y)
+        var milliseconds = (new Date).getTime() - startTime;
+        $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',move');
+        mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',0\n';
     })
     .mousedown(function() {
-        $('#mouseInfo').html("x: "+mousePos.x+" y: "+mousePos.y+' down');
+        var milliseconds = (new Date).getTime() - startTime;
+        // event.which == 1 indicates the left click
+        if (event.which == 1) {
+            $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',down');
+            mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',2\n';
+        }
+        
     })
     .mouseup(function() {
-        $('#mouseInfo').html("x: "+mousePos.x+" y: "+mousePos.y+' up');
+        var milliseconds = (new Date).getTime() - startTime;
+        if (event.which == 1) {
+            $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',up');
+            mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',1\n';
+        }
     });
 })

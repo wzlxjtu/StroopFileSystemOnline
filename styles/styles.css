@@ -18,8 +18,8 @@ body {
     width: 200px;
     height: 200px;
     position: absolute;
-    left: 800px;
-    top: 600px;
+    left: 700px;
+    bottom: 10%;
     border-style: none;
     font-size: 30px;
     
@@ -36,7 +36,7 @@ body {
 }
 #sourceContainer{
     overflow-y: scroll;
-    width: 400px;
+    width: 600px;
     height:500px;
     border-style: inset;
 }
@@ -45,7 +45,7 @@ body {
     height:500px;
     border-style: inset;
     position: absolute;
-    left: 1200px;
+    left: 800px;
     top: 0px;
 }
 .imageIcon {
@@ -78,7 +78,7 @@ body {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 10%; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -90,7 +90,7 @@ body {
 /* Modal Content */
 .modal-content {
     background-color: #F5F5F5;
-    margin: auto;
+    margin-left: 10%;
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
