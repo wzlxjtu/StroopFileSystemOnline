@@ -1,6 +1,7 @@
 $(document).ready(function(){
-
-    var outputFile = "Participant Summary + \n"
+    var bearer = "vEP56hodmUYAAAAAAAAHFgCdE6zYUBhT_CuQaI94KKvwdSxgPsUAAmMRxalx2gAV";
+    
+    var outputFile = "Participant Summary\n"
     outputFile = outputFile + "EasyFirst: " + localStorage["EasyFirst"] + "\n";
     outputFile = outputFile + "Pre-Questionnaire: " + localStorage["pre-questionnaire"] + "\n";
     outputFile = outputFile + "Self-Report (CWT-relaxed): " + localStorage["SAM_CWT_relaxed"] + "\n";
@@ -68,23 +69,20 @@ $(document).ready(function(){
         var fileInfo = JSON.parse(xhr.response);
         // Upload succeeded
         $("#upload-message").html("Data uploaded succesfully! Please, copy the code below to redeem your prize!")
-        $("#upload-message").css("display", "table");
                 
         var code = generateCode();
         $("#code").css("display", "table");
-	    $("#code").html(code);
+	      $("#code").html(code);
       }
       else {
         var errorMessage = xhr.response || 'Unable to upload file. Please, refresh this page and try again. If the problem persists contact the protocol director at silva.dennis@tamu.edu';
         // Upload failed.
         $("#upload-message").html("errorMessage")
-        $("#upload-message").css("display", "table");
       }
     };
      
-    var dropboxToken = "vEP56hodmUYAAAAAAAAHFgCdE6zYUBhT_CuQaI94KKvwdSxgPsUAAmMRxalx2gAV";
     xhr.open('POST', 'https://content.dropboxapi.com/2/files/upload');
-    xhr.setRequestHeader('Authorization', 'Bearer ' + dropboxToken);
+    xhr.setRequestHeader('Authorization', 'Bearer ' + bearer);
     xhr.setRequestHeader('Content-Type', 'application/octet-stream');
     xhr.setRequestHeader('Dropbox-API-Arg', JSON.stringify({
       path: '/' +  makeid() + ".txt",
