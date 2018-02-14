@@ -12,7 +12,11 @@ $(document).ready(function(){
     outputFile = outputFile + localStorage["keylog_relaxed"] + "\n";
     outputFile = outputFile + "-------------------TYPING-STRESSED-------------------\n";
     outputFile = outputFile + localStorage["keylog_stressed"] + "\n";
-
+    outputFile = outputFile + "-------------------MOUSE-RELAXED-------------------\n";
+    outputFile = outputFile + localStorage["mouselog_relaxed"] + "\n";
+    outputFile = outputFile + "-------------------MOUSE-STRESSED-------------------\n";
+    outputFile = outputFile + localStorage["mouselog_stressed"] + "\n";
+    
     function makeid() {
       var text = "";
       var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -23,7 +27,7 @@ $(document).ready(function(){
       return text;
     }
     
-    function randomize(n) {
+  function randomize(n) {
 		var ranNum = Math.round(Math.random()*n);
 		return ranNum;
 	}
@@ -72,7 +76,7 @@ $(document).ready(function(){
                 
         var code = generateCode();
         $("#code").css("display", "table");
-	    $("#code").html(code);
+	      $("#code").html(code);
       }
       else {
         var errorMessage = xhr.response || 'Unable to upload file. Please, refresh this page and try again. If the problem persists contact the protocol director at silva.dennis@tamu.edu';
@@ -82,7 +86,7 @@ $(document).ready(function(){
       }
     };
      
-    var dropboxToken = "vEP56hodmUYAAAAAAAAHFgCdE6zYUBhT_CuQaI94KKvwdSxgPsUAAmMRxalx2gAV";
+    var dropboxToken = "sELtG2Agk3AAAAAAAAAACVNRM-k6v8Vz7SSJ1KTiPtes0rW4k-7ybTG1vWu3UNek";
     xhr.open('POST', 'https://content.dropboxapi.com/2/files/upload');
     xhr.setRequestHeader('Authorization', 'Bearer ' + dropboxToken);
     xhr.setRequestHeader('Content-Type', 'application/octet-stream');

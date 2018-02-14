@@ -1,13 +1,18 @@
 
-var congruent = false;
-
-var mousedata = "";
-var pool = ["BLUE", "GREEN", "ORANGE", "PURPLE", "RED", "YELLOW"];
-var correct = 0, wrong = 0;
-var mousePos = { x: -1, y: -1 };
-
 $(document).ready(function(){
     
+    // Loading data from memory
+    var round = localStorage.getItem("Round");
+    var easyFirst = localStorage.getItem("EasyFirst") == 'true';
+    // Determining if this session is within the relaxed or stressed block
+    var relaxedOrStressed = ( (easyFirst && round == 1) || (!easyFirst && round == 3) ) ? "relaxed" : "stressed";
+    var congruent = ( (easyFirst && round == 1) || (!easyFirst && round == 3) ) ? true : false;
+    
+    var mousedata = "";
+    var pool = ["BLUE", "GREEN", "ORANGE", "PURPLE", "RED", "YELLOW"];
+    var correct = 0, wrong = 0;
+    var mousePos = { x: -1, y: -1 };
+
     var startTime = (new Date).getTime();
     
     $(".close").click(function(){
@@ -24,7 +29,7 @@ $(document).ready(function(){
             else {
                 wrong++;
                 if (!congruent) {
-                    $("#alarm").get(0).play();
+                    //$("#alarm").get(0).play();
                     $("#performanceContainer").animate({color: 'red'},100).animate({color: 'black'},3000);
                 }
             }
@@ -94,6 +99,7 @@ $(document).ready(function(){
         var milliseconds = (new Date).getTime() - startTime;
         $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',move');
         mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',0\n';
+        localStorage.setItem('mouselog_' + relaxedOrStressed, mousedata);
     })
     .mousedown(function() {
         var milliseconds = (new Date).getTime() - startTime;
@@ -101,6 +107,7 @@ $(document).ready(function(){
         if (event.which == 1) {
             $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',down');
             mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',2\n';
+            localStorage.setItem('mouselog_' + relaxedOrStressed, mousedata);
         }
         
     })
@@ -109,6 +116,7 @@ $(document).ready(function(){
         if (event.which == 1) {
             $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',up');
             mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',1\n';
+            localStorage.setItem('mouselog_' + relaxedOrStressed, mousedata);
         }
     });
 })
