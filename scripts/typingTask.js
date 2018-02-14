@@ -4,6 +4,7 @@ $(document).ready(function(){
     var timeDistraction = 1500;
     var numDistractions = 0;
     var numRight = 0;
+    var numWrongConsecutive = 0;
     
     var pauses = [14,11,10,14,15,13,15,17,23,16,19,16,14,19,14,17,10,14,13,12];
     var currentPauseIndex = 0;
@@ -69,7 +70,7 @@ $(document).ready(function(){
 	// Check if shortcut is pressed. If it is, increment numRight and paint the circle green
 	function checkShortcutPressed(evt){
 	    if (!evt) evt = event;
-	    if (evt.ctrlKey && evt.which == 32){
+	    if (evt.which == 27){
 	        if (circleIsRead) {
 	        	$(".circle").addClass("green").delay(200).queue(function(next){
 	        		$(this).removeClass("green");
@@ -83,6 +84,12 @@ $(document).ready(function(){
 	            var numRightLocalStorage = parseInt(localStorage.getItem("numRight_" + relaxedOrStressed));
 	            numRightLocalStorage += 1;
 	            localStorage.setItem("numRight_" + relaxedOrStressed, numRightLocalStorage);
+	        }else {
+	        	numWrongConsecutive += 1;
+	        	if (numWrongConsecutive == 2){
+	        		numWrongConsecutive = 0;
+	        		alert("Please, pay attention to the circle. Whenever is red you should press ESC")
+	        	}
 	        }
 	    }
 	}

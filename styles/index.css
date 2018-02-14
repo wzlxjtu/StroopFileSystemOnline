@@ -1,3 +1,12 @@
+#homepage p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#homepage li {
+    font-weight: bold;
+}
+
 .centered-img {
     display: table;
     margin: 0 auto;
@@ -175,7 +184,6 @@
 
 .circle.red {
     background: red;
-    transition: 1s background;
 }
 
 .circle.green {
