@@ -1,6 +1,6 @@
 
 // Set the duration we're counting down
-var duration = 3 * 60 * 1000; // 3 min
+var duration = 0.1 * 60 * 1000; // 3 min
 
 // Update the count down every 0.1 second
 var x = setInterval(function() {
@@ -10,7 +10,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((duration % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="timer"
-  $(".timer").html(minutes + ":" + seconds);
+  $(".timer").html(minutes + ":" + ('00'+seconds).slice(-2));
   
   duration -= 100;
   

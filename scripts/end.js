@@ -9,6 +9,8 @@ $(document).ready(function(){
     outputFile = outputFile + "Self-Report (Typing-relaxed): " + localStorage["SAM_typing_relaxed"] + "\n";
     outputFile = outputFile + "Self-Report (Typing-stressed): " + localStorage["SAM_typing_stressed"] + "\n";
     outputFile = outputFile + "Number of correctly pressed shortcuts: " + localStorage["numRight_stressed"] + "\n";
+    outputFile = outputFile + "CWT-relaxed Number of Correct and Wrong: " + localStorage["cwtlog_relaxed"] + "\n";
+    outputFile = outputFile + "CWT-stressed Number of Correct and Wrong: " + localStorage["cwtlog_stressed"] + "\n";
     outputFile = outputFile + "-------------------TYPING-RELAXED-------------------\n";
     outputFile = outputFile + localStorage["keylog_relaxed"] + "\n";
     outputFile = outputFile + "-------------------TYPING-STRESSED-------------------\n";

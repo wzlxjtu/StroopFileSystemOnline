@@ -37,6 +37,7 @@ $(document).ready(function(){
             $("#wrong").html(wrong);
             $("#total").html(correct+wrong);
             $(ui.draggable).remove();
+            localStorage.setItem('cwtlog_' + relaxedOrStressed, [correct,wrong]);
         },
         over: function(event, ui) {
            $(this).css('background-color', '#C6E2FF');
@@ -97,7 +98,7 @@ $(document).ready(function(){
         mousePos.x = event.pageX;
         mousePos.y = event.pageY;
         var milliseconds = (new Date).getTime() - startTime;
-        $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',move');
+        //$('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',move');
         mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',0\n';
         localStorage.setItem('mouselog_' + relaxedOrStressed, mousedata);
     })
@@ -105,7 +106,7 @@ $(document).ready(function(){
         var milliseconds = (new Date).getTime() - startTime;
         // event.which == 1 indicates the left click
         if (event.which == 1) {
-            $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',down');
+            //$('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',down');
             mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',2\n';
             localStorage.setItem('mouselog_' + relaxedOrStressed, mousedata);
         }
@@ -114,7 +115,7 @@ $(document).ready(function(){
     .mouseup(function() {
         var milliseconds = (new Date).getTime() - startTime;
         if (event.which == 1) {
-            $('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',up');
+            //$('#mouseInfo').html(milliseconds+","+mousePos.x+","+mousePos.y+',up');
             mousedata += milliseconds+","+mousePos.x+","+mousePos.y+',1\n';
             localStorage.setItem('mouselog_' + relaxedOrStressed, mousedata);
         }
