@@ -11,6 +11,10 @@ $(document).ready(function(){
     outputFile = outputFile + "Number of correctly pressed shortcuts: " + localStorage["numRight_stressed"] + "\n";
     outputFile = outputFile + "CWT-relaxed Number of Correct and Wrong: " + localStorage["cwtlog_relaxed"] + "\n";
     outputFile = outputFile + "CWT-stressed Number of Correct and Wrong: " + localStorage["cwtlog_stressed"] + "\n";
+    outputFile = outputFile + "-------------------TEXT-RELAXED-------------------\n";
+    outputFile = outputFile + localStorage["composition_relaxed"] + "\n";
+    outputFile = outputFile + "-------------------TEXT-STRESSED-------------------\n";
+    outputFile = outputFile + localStorage["composition_stressed"] + "\n";
     outputFile = outputFile + "-------------------TYPING-RELAXED-------------------\n";
     outputFile = outputFile + localStorage["keylog_relaxed"] + "\n";
     outputFile = outputFile + "-------------------TYPING-STRESSED-------------------\n";

@@ -43,12 +43,24 @@ $(document).ready(function(){
  	        	var timeInterval = pauses[currentPauseIndex] * 1000;
  	        	currentPauseIndex += 1;
 	        	setTimeout(setTimer, timeInterval);	
+	        	
+	        	var z = setInterval(function() {
+					if (duration < 100){
+						localStorage.setItem("composition_" + relaxedOrStressed, $("#composition").val());
+					}
+				}, 100);
  	        });
  	    });
 	}
 	else {
 	    $(".typing-img-container img").attr("src", "resources/image4.jpg");
 	    $.loadScript('scripts/timer.js', function(){});
+	    
+	    var y = setInterval(function() {
+			if (duration < 100){
+				localStorage.setItem("composition_" + relaxedOrStressed, $("#composition").val());
+			}
+		}, 100);
 	}
 	
 	function setTimer(){
@@ -109,7 +121,7 @@ $(document).ready(function(){
 	});
 	
 	function handleTypingEvent(e, keyUpDown){
-	    checkShortcutPressed(e);
+		checkShortcutPressed(e);
 	    var now = new Date();
 		var timestamp = now.toISOString();
 		var stroke = timestamp +  ',' + keyUpDown + ','  + e.code;
