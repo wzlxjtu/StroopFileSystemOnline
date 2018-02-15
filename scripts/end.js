@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var bearer = "vEP56hodmUYAAAAAAAAHFgCdE6zYUBhT_CuQaI94KKvwdSxgPsUAAmMRxalx2gAV";
+    var bearer = "sELtG2Agk3AAAAAAAAAAC01dxo-g837S_zkPV0XD9SFZ7MDqSR19-JFZwAYxdKE5";
     
     var outputFile = "Participant Summary\n"
     outputFile = outputFile + "EasyFirst: " + localStorage["EasyFirst"] + "\n";

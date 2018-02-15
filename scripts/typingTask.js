@@ -117,7 +117,7 @@ $(document).ready(function(){
 	});
 	
 	document.addEventListener('keyup', (event) => {
-	  handleTypingEvent(event, '0');
+	  handleTypingEvent(event, '1');
 	});
 	
 	function handleTypingEvent(e, keyUpDown){
@@ -125,7 +125,7 @@ $(document).ready(function(){
 	    var now = new Date();
 		var timestamp = now.toISOString();
 		var stroke = timestamp +  ',' + keyUpDown + ','  + e.code;
-		buffer += stroke + ';';
-		localStorage.setItem('keylog_' + relaxedOrStressed, JSON.stringify(buffer));
+		buffer += stroke + '\n';
+		localStorage.setItem('keylog_' + relaxedOrStressed, buffer);
 	}
 });

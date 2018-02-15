@@ -17,7 +17,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text 
   if (duration < 0) {
     clearInterval(x);
-    $(".timer").html("EXPIRED");
+    $(".timer").html(""); // Expired
     
     // Incrementing Round
     var round = parseInt(localStorage.getItem("Round"));
@@ -27,11 +27,5 @@ var x = setInterval(function() {
     // Redirecting to self report page
     window.location = "affectTaskLoad.html";
     
-    // var filename = 'mousedata';
-    // var link = $("#summary");
-    // link.attr('download', filename);
-    // var filelink = makeTextFile(mousedata);
-    // link.attr('href', filelink);
-    // link.css("visibility", "visible");
   }
 }, 100);
