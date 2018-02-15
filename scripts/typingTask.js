@@ -1,10 +1,11 @@
 $(document).ready(function(){
     var buffer = "";
-    var circleIsRead = false;
+    var circleIsRed = false;
     var timeDistraction = 1500;
     var numDistractions = 0;
     var numRight = 0;
     var numWrongConsecutive = 0;
+    var pressedWhileRed = false;
     
     var pauses = [14,11,10,14,15,13,15,17,23,16,19,16,14,19,14,17,10,14,13,12];
     var currentPauseIndex = 0;
@@ -58,12 +59,20 @@ $(document).ready(function(){
 	}
 	
 	function paintCircle(){
-	    circleIsRead = true;
+	    circleIsRed = true;
 	    numDistractions += 1;
+	    pressedWhileRed = false;
 	    $(".circle").addClass("red").delay(timeDistraction).queue(function(next){
-            $(this).removeClass("red");
-            circleIsRead = false;
+	    	$(this).removeClass("red");
+	    	circleIsRed = false;
             next();
+            
+            if (!pressedWhileRed){
+	    		numWrongConsecutive += 1;
+	    		if (numWrongConsecutive >= 2){
+	    			alert("Please, pay attention to the circle. You MUST press ESC whenever the circle is red. Please make sure you follow this rule to ensure that you will be compensated at the end of the experiment.")
+	    		}
+	    	}
         });
 	}
 	
@@ -71,25 +80,22 @@ $(document).ready(function(){
 	function checkShortcutPressed(evt){
 	    if (!evt) evt = event;
 	    if (evt.which == 27){
-	        if (circleIsRead) {
+	        if (circleIsRed) {
 	        	$(".circle").addClass("green").delay(200).queue(function(next){
 	        		$(this).removeClass("green");
 		            $(this).removeClass("red");
-		            circleIsRead = false;
+		            circleIsRed = false;
 		            next();
 		        });
+		        numWrongConsecutive = 0;
+		        pressedWhileRed = true;
+		        
 	            numRight += 1;
-	            circleIsRead = false;
+	            circleIsRed = false;
 	            
 	            var numRightLocalStorage = parseInt(localStorage.getItem("numRight_" + relaxedOrStressed));
 	            numRightLocalStorage += 1;
 	            localStorage.setItem("numRight_" + relaxedOrStressed, numRightLocalStorage);
-	        }else {
-	        	numWrongConsecutive += 1;
-	        	if (numWrongConsecutive == 2){
-	        		numWrongConsecutive = 0;
-	        		alert("Please, pay attention to the circle. Whenever is red you should press ESC")
-	        	}
 	        }
 	    }
 	}
