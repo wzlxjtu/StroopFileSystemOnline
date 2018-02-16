@@ -89,6 +89,12 @@
     background: white;
 }
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+   .tlx-option-wrapper .tlx-option {
+       margin-right: -5px;
+   }
+}
+
 .tlx-option-wrapper .tlx-option:hover{
     background: #d9534f;
     cursor: pointer;
