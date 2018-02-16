@@ -11,6 +11,7 @@ $(document).ready(function(){
     var mousedata = "";
     var pool = ["BLUE", "GREEN", "ORANGE", "PURPLE", "RED", "YELLOW"];
     var correct = 0, wrong = 0;
+    localStorage.setItem('cwtlog_' + relaxedOrStressed, [correct,wrong]);
     var mousePos = { x: -1, y: -1 };
 
     var startTime = (new Date).getTime();

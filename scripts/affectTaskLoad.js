@@ -71,7 +71,7 @@ $( document ).ready(function(){
                     break;
                 case 5:
                     SAMName = "SAM_typing_" + relaxedOrStressed;
-                    document.SAM.action = "end.html";
+                    document.SAM.action = "code.html";
                     break;
                 default:
                     document.SAM.action = "#";

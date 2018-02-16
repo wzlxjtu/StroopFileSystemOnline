@@ -16,10 +16,6 @@ $( document ).ready(function(){
             "Peripherals" : peripheralChoice
         };
         
-        var workerID = $("#workerID").val();
-        
-        localStorage.setItem("workerID", workerID);
-        
         localStorage.setItem("pre-questionnaire", JSON.stringify(response));
         
         var flip = Math.random();
