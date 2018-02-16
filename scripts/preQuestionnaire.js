@@ -1,4 +1,8 @@
 $( document ).ready(function(){
+    var now = new Date();
+	var timestamp = now.toISOString();
+	localStorage.setItem('startTime',timestamp);
+	
     $("#pre-quest").submit(function(e){
         var arousalChecked = $("input[name=arousalradio]:checked").val();
         var valenceChecked = $("input[name=valenceradio]:checked").val();

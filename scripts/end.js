@@ -1,8 +1,17 @@
 $(document).ready(function(){
+  
+    var now = new Date();
+	  var timestamp = now.toISOString();
+	  localStorage.setItem('endTime',timestamp);
+    var code = generateCode();
+  
     var bearer = "sELtG2Agk3AAAAAAAAAAC01dxo-g837S_zkPV0XD9SFZ7MDqSR19-JFZwAYxdKE5";
     
     var outputFile = "Participant Summary\n"
+    outputFile = outputFile + "Start Time: " + localStorage["startTime"] + "\n";
+    outputFile = outputFile + "Submission Time: " + localStorage["endTime"] + "\n";
     outputFile = outputFile + "Worker ID: " + localStorage["workerID"] + "\n";
+    outputFile = outputFile + "Worker Code: " + code + "\n";
     outputFile = outputFile + "EasyFirst: " + localStorage["EasyFirst"] + "\n";
     outputFile = outputFile + "Pre-Questionnaire: " + localStorage["pre-questionnaire"] + "\n";
     outputFile = outputFile + "Self-Report (CWT-relaxed): " + localStorage["SAM_CWT_relaxed"] + "\n";
@@ -80,19 +89,16 @@ $(document).ready(function(){
         var fileInfo = JSON.parse(xhr.response);
         // Upload succeeded
         $("#upload-message").html("Data uploaded succesfully! Please, copy the code below to redeem your prize!")
-                
-        var code = generateCode();
         $("#code").css("display", "table");
 	      $("#code").html(code);
+	      localStorage.clear();
       }
       else {
         var errorMessage = xhr.response || 'Unable to upload file. Please, refresh this page and try again. If the problem persists contact the protocol director at silva.dennis@tamu.edu';
         // Upload failed.
-        $("#upload-message").html("errorMessage")
+        $("#upload-message").html("Duplicate submission detected! Code not generated")
       }
     };
-
-    
     
     xhr.open('POST', 'https://content.dropboxapi.com/2/files/upload');
     xhr.setRequestHeader('Authorization', 'Bearer ' + bearer);
