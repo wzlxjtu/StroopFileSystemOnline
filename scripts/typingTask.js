@@ -7,7 +7,7 @@ $(document).ready(function(){
     var numWrongConsecutive = 0;
     var pressedWhileRed = false;
     
-    var pauses = [14,11,10,14,15,13,15,17,23,16,19,16,14,19,14,17,10,14,13,12];
+    var pauses = [14,11,10,14,15,13,15,17,23,16,19,16,14,19,14,17,10,14,13,12,14,11,10,14,15,13,15,17,23,16,19,16,14,19,14,17,10,14,13,12];
     var currentPauseIndex = 0;
     
     // Loading data from memory
@@ -54,13 +54,13 @@ $(document).ready(function(){
 	}
 	else {
 	    $(".typing-img-container img").attr("src", "resources/image4.jpg");
-	    $.loadScript('scripts/timer.js', function(){});
-	    
-	    var y = setInterval(function() {
-			if (duration < 100){
-				localStorage.setItem("composition_" + relaxedOrStressed, $("#composition").val());
-			}
-		}, 100);
+	    $.loadScript('scripts/timer.js', function(){
+	    	var y = setInterval(function() {
+				if (duration < 100){
+					localStorage.setItem("composition_" + relaxedOrStressed, $("#composition").val());
+				}
+			}, 100);
+	    });
 	}
 	
 	function setTimer(){
@@ -77,14 +77,15 @@ $(document).ready(function(){
 	    $(".circle").addClass("red").delay(timeDistraction).queue(function(next){
 	    	$(this).removeClass("red");
 	    	circleIsRed = false;
-            next();
-            
-            if (!pressedWhileRed){
+	    	
+	    	if (!pressedWhileRed){
 	    		numWrongConsecutive += 1;
 	    		if (numWrongConsecutive >= 2){
 	    			alert("Please, pay attention to the circle. You MUST press ESC whenever the circle is red. Please make sure you follow this rule to ensure that you will be compensated at the end of the experiment.")
 	    		}
 	    	}
+	    	
+            next();
         });
 	}
 	
