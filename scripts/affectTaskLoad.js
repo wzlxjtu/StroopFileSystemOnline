@@ -70,6 +70,9 @@ $( document ).ready(function(){
                     document.SAM.action = "typingTask.html";
                     break;
                 case 5:
+                    var now = new Date();
+                	var timestamp = now.toISOString();
+                	localStorage.setItem('endTime',timestamp);
                     SAMName = "SAM_typing_" + relaxedOrStressed;
                     document.SAM.action = "code.html";
                     break;

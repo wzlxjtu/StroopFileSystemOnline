@@ -1,8 +1,5 @@
 $(document).ready(function(){
   
-    var now = new Date();
-	  var timestamp = now.toISOString();
-	  localStorage.setItem('endTime',timestamp);
     var code = generateCode();
   
     var bearer = "sELtG2Agk3AAAAAAAAAAC01dxo-g837S_zkPV0XD9SFZ7MDqSR19-JFZwAYxdKE5";
@@ -33,6 +30,11 @@ $(document).ready(function(){
     outputFile = outputFile + localStorage["mouselog_relaxed"] + "\n";
     outputFile = outputFile + "-------------------MOUSE-STRESSED-------------------\n";
     outputFile = outputFile + localStorage["mouselog_stressed"] + "\n";
+    
+    if (localStorage["composition_relaxed"] == undefined || localStorage["composition_stressed"] == undefined) {
+      $("#upload-message").html("Completion code is not generated because task data is missing. Please make sure every task is completed as required")
+      return;
+    }
     
     function makeid() {
       var text = "";
@@ -96,7 +98,7 @@ $(document).ready(function(){
       else {
         var errorMessage = xhr.response || 'Unable to upload file. Please, refresh this page and try again. If the problem persists contact the protocol director at silva.dennis@tamu.edu';
         // Upload failed.
-        $("#upload-message").html("Duplicate submission detected! Code not generated")
+        $("#upload-message").html("Upload failed! Code is not generated")
       }
     };
     
