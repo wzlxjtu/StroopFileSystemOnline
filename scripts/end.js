@@ -2,6 +2,7 @@ $(document).ready(function(){
     var bearer = "sELtG2Agk3AAAAAAAAAAC01dxo-g837S_zkPV0XD9SFZ7MDqSR19-JFZwAYxdKE5";
     
     var outputFile = "Participant Summary\n"
+    outputFile = outputFile + "Worker ID: " + localStorage["workerID"] + "\n";
     outputFile = outputFile + "EasyFirst: " + localStorage["EasyFirst"] + "\n";
     outputFile = outputFile + "Pre-Questionnaire: " + localStorage["pre-questionnaire"] + "\n";
     outputFile = outputFile + "Self-Report (CWT-relaxed): " + localStorage["SAM_CWT_relaxed"] + "\n";
@@ -91,15 +92,17 @@ $(document).ready(function(){
       }
     };
 
+    
+    
     xhr.open('POST', 'https://content.dropboxapi.com/2/files/upload');
     xhr.setRequestHeader('Authorization', 'Bearer ' + bearer);
     xhr.setRequestHeader('Content-Type', 'application/octet-stream');
     xhr.setRequestHeader('Dropbox-API-Arg', JSON.stringify({
-      path: '/' +  makeid() + ".txt",
+      path: '/' +  localStorage["workerID"] + ".txt",
       mode: 'add',
-      autorename: true,
+      autorename: false,
       mute: false
     }));
-     
+    
     xhr.send(outputFile);
 });

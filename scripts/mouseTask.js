@@ -54,12 +54,12 @@ $(document).ready(function(){
     });
     
     // create draggable elements
-    for(i=0; i<100; i++) {
+    for(i=0; i<150; i++) {
         $('<div>')
         .attr('id', i)
         .addClass("ui-widget-content")
         .appendTo('#sourceContainer')
-        .prepend('<span><img class="imageIcon" src="resources/imageIcon.jpg">'+' '+('00'+i).slice(-2)+'.jpg</span>')
+        .prepend('<span><img class="imageIcon" src="resources/imageIcon.jpg">'+' '+('000'+i).slice(-3)+'.jpg</span>')
         .draggable({
             opacity: 0.35,
             revert: "invalid",

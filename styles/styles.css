@@ -14,12 +14,20 @@ body {
     bottom: 10px;
     position: absolute;
 }
+#instructionContainer{
+    position: absolute;
+    left: 100px;
+    top: 600px;
+    border-style: none;
+    font-size: 25px;
+    color: #1B4F72;
+}
 #performanceContainer{
     width: 200px;
     height: 200px;
     position: absolute;
-    left: 700px;
-    bottom: 10%;
+    left: 900px;
+    top: 600px;
     border-style: none;
     font-size: 30px;
     
