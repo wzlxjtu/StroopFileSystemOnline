@@ -89,6 +89,18 @@
     background: white;
 }
 
+@supports (-ms-ime-align:auto) {
+    .tlx-option-wrapper .tlx-option {
+       margin-right: -5px;
+   }
+}
+
+@-moz-document url-prefix() { 
+  .tlx-option-wrapper .tlx-option {
+       margin-right: -5px;
+   }
+}
+
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
    .tlx-option-wrapper .tlx-option {
        margin-right: -5px;

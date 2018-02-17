@@ -84,7 +84,7 @@ $(document).ready(function(){
             $(".modal").show();
             $(".target").html($(this).data("content").word).css({'color': $(this).data("content").color});
             $("#option").html($(this).data("content").select == 0 ? "COLOR" : "WORD");
-            if (congruent) $(".option").hide();
+            if (congruent) $("#option").html("WORD");
         })
         .mouseenter(function() {
             $(this).css('background-color', '#C6E2FF');
