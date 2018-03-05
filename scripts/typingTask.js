@@ -113,6 +113,12 @@ $(document).ready(function(){
 	    }
 	}
 	
+	function checkIfControlV(evt){
+	    if (!evt) evt = event;
+	    return ((evt.metaKey || evt.ctrlKey) && ( String.fromCharCode(evt.which).toLowerCase() === 'v') )
+		
+	}
+	
 	document.addEventListener('keydown', (event) => {
 	  handleTypingEvent(event, '0');
 	});
@@ -123,10 +129,17 @@ $(document).ready(function(){
 	
 	function handleTypingEvent(e, keyUpDown){
 		checkShortcutPressed(e);
-	    var now = new Date();
-		var timestamp = now.toISOString();
-		var stroke = timestamp +  ',' + keyUpDown + ','  + e.code;
-		buffer += stroke + '\n';
-		localStorage.setItem('keylog_' + relaxedOrStressed, buffer);
+		if (!checkIfControlV(e)){
+		    var now = new Date();
+			var timestamp = now.toISOString();
+			var stroke = timestamp +  ',' + keyUpDown + ','  + e.code;
+			buffer += stroke + '\n';
+			localStorage.setItem('keylog_' + relaxedOrStressed, buffer);
+		}
+		else{
+			alert("The use of CTRL+C/V is forbidden. Please, describe the painting with your own words!");	
+			e.preventDefault();
+			e.stopPropagation();
+		}
 	}
 });
